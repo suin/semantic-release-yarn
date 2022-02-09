@@ -25,6 +25,12 @@
     "url": "https://twitter.com/suin"
   },
   "type": "commonjs",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    }
+  },
   "main": "./index.js",
   "types": "./index.d.ts",
   "files": [
