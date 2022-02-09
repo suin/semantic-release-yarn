@@ -99,7 +99,7 @@ export async function publish(
   context.logger.log(
     `Publishing version ${version} to npm registry on dist-tag ${distTag}`
   );
-  // await yarn.publish(distTag);
+  await yarn.publish(distTag);
   context.logger.log(
     `Published ${pkg.name}@${version} to dist-tag @${distTag}`
   );
