@@ -1,0 +1,65 @@
+{
+  "name": "@suin/semantic-release-yarn",
+  "version": "0.0.0-development",
+  "description": "semantic-release plugin to publish a npm package with yarn@berry",
+  "keywords": [
+    "semantic-release",
+    "yarn",
+    "yarn2",
+    "yarn3",
+    "yarn-berry",
+    "publish",
+    "version"
+  ],
+  "homepage": "https://github.com/suin/semantic-release-yarn#readme",
+  "bugs": {
+    "url": "https://github.com/suin/semantic-release-yarn/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suin/semantic-release-yarn.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "suin",
+    "url": "https://twitter.com/suin"
+  },
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "types": "./index.d.ts"
+    }
+  },
+  "files": [
+    "*.{js,ts,map}",
+    "**/*.{js,ts,map}",
+    "!*.{test,spec}.*",
+    "!testUtils.*"
+  ],
+  "dependencies": {
+    "@semantic-release/error": "^3.0.0",
+    "execa": "^5.1.1",
+    "read-pkg": "5.2.0",
+    "semver": "^7.3.5"
+  },
+  "devDependencies": {
+    "@suin/tsconfig": "^0.0.0",
+    "@types/semver": "^7.3.9",
+    "tempy": "^1.0.1",
+    "typescript": "^4.5.5",
+    "vitest": "^0.2.8"
+  },
+  "engines": {
+    "node": ">=16.9"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "yarn@3.1.0",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest *.test.ts --threads false --run",
+    "test:watch": "vitest *.test.ts --threads false"
+  }
+}

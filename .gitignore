@@ -1,0 +1,10 @@
+/node_modules
+/.yarn
+*.js
+*.d.ts
+*.map
+*.tgz
+!/changelog.config.js
+!/commitlint.config.js
+!/release.config.js
+!pkg.*.d.ts
