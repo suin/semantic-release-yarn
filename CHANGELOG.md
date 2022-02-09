@@ -1,3 +1,10 @@
+### [1.0.2](https://github.com/suin/semantic-release-yarn/compare/v1.0.1...v1.0.2) (2022-02-09)
+
+
+### Bug Fixes
+
+* 🐛 yarn publish didn't work ([41778c5](https://github.com/suin/semantic-release-yarn/commit/41778c55c4ea5f781a1f0bf60e185353a39a4918))
+
 ### [1.0.1](https://github.com/suin/semantic-release-yarn/compare/v1.0.0...v1.0.1) (2022-02-09)
 
 
