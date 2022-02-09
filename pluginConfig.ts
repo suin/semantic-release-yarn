@@ -32,20 +32,28 @@ function assertNullableBoolean(
   value: unknown,
   name: string
 ): asserts value is boolean | undefined {
-  if (typeof value !== "undefined" || typeof value !== "boolean") {
-    throw new Error(
-      `${name} must be a boolean, but given ${JSON.stringify(value)}`
-    );
+  if (typeof value === "undefined") {
+    return;
   }
+  if (typeof value === "boolean") {
+    return;
+  }
+  throw new Error(
+    `${name} must be a boolean, but given ${JSON.stringify(value)}`
+  );
 }
 
 function assertNullableString(
   value: unknown,
   name: string
 ): asserts value is string | undefined {
-  if (typeof value !== "undefined" || typeof value !== "string") {
-    throw new Error(
-      `${name} must be a string, but given ${JSON.stringify(value)}`
-    );
+  if (typeof value === "undefined") {
+    return;
   }
+  if (typeof value === "string") {
+    return;
+  }
+  throw new Error(
+    `${name} must be a string, but given ${JSON.stringify(value)}`
+  );
 }
