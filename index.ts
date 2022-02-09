@@ -8,8 +8,10 @@ let verified = false;
 let prepared = false;
 const yarn = new Yarn();
 
+export type { PluginConfig };
+
 export async function verifyConditions(
-  config: PluginConfig,
+  config: PluginConfig | undefined = undefined,
   context: Context
 ): Promise<void> {
   config = PluginConfig.normalize(config);
@@ -36,7 +38,10 @@ export async function verifyConditions(
   verified = true;
 }
 
-export async function prepare(config: PluginConfig, context: PrepareContext) {
+export async function prepare(
+  config: PluginConfig | undefined = undefined,
+  context: PrepareContext
+) {
   config = PluginConfig.normalize(config);
   if (!verified) {
     return;
@@ -70,7 +75,10 @@ export async function prepare(config: PluginConfig, context: PrepareContext) {
   prepared = true;
 }
 
-export async function publish(config: PluginConfig, context: PrepareContext) {
+export async function publish(
+  config: PluginConfig | undefined = undefined,
+  context: PrepareContext
+) {
   config = PluginConfig.normalize(config);
   if (!verified || !prepared) {
     return;

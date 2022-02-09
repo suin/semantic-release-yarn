@@ -15,7 +15,10 @@ export interface PluginConfig {
 }
 
 export const PluginConfig = {
-  normalize({ npmPublish, tarballDir }: PluginConfig): PluginConfig {
+  normalize({
+    npmPublish,
+    tarballDir,
+  }: PluginConfig | undefined = {}): PluginConfig {
     assertNullableBoolean(npmPublish, "npmPublish");
     assertNullableString(tarballDir, "tarballDir");
     return {
