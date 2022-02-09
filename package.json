@@ -33,6 +33,11 @@
     "!*.{test,spec}.*",
     "!testUtils.*"
   ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest *.test.ts --threads false --run",
+    "test:watch": "vitest *.test.ts --threads false"
+  },
   "dependencies": {
     "@semantic-release/error": "^3.0.0",
     "execa": "^5.1.1",
@@ -56,10 +61,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "packageManager": "yarn@3.1.0",
-  "scripts": {
-    "build": "tsc",
-    "test": "vitest *.test.ts --threads false --run",
-    "test:watch": "vitest *.test.ts --threads false"
-  }
+  "packageManager": "yarn@3.1.0"
 }
