@@ -34,7 +34,7 @@ describe("authenticated", () => {
   });
 });
 
-test("version", async () => {
+test.skip("version", async () => {
   const cwd = tempy.directory();
   const packageJson = `${cwd}/package.json`;
   fs.writeFileSync(

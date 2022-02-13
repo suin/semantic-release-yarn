@@ -1,11 +1,12 @@
+/.yarn
+/.idea
+/CHANGELOG.md
 .pnp.*
 /node_modules
 *.js
 *.d.ts
 *.map
-*.tgz
 !/changelog.config.js
 !/commitlint.config.js
 !/release.config.js
 !/lint-staged.config.js
-!pkg.*.d.ts
