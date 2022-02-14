@@ -1,0 +1,9 @@
+*
+!.gitignore
+!.gitattributes
+!/patches
+!/patches/**
+!/plugins
+!/plugins/**
+!/releases
+!/releases/**

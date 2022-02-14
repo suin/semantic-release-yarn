@@ -1,0 +1,38 @@
+name: "Comment bundle preview"
+description: "Comment bundle preview"
+inputs:
+  node-version:
+    description: "Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0"
+    required: false
+    default: "16"
+runs:
+  using: "composite"
+  steps:
+    - uses: ./.github/actions/setup_yarn
+      with:
+        node-version: ${{ inputs.node-version }}
+    - run: yarn build
+      shell: bash
+    - run: |
+        RESULT=$(yarn pack --dry-run --json | jq 'select(.location!=null)'.location -r)
+        RESULT="${RESULT//'%'/'%25'}"
+        RESULT="${RESULT//$'\n'/'%0A'}"
+        RESULT="${RESULT//$'\r'/'%0D'}"
+        echo "::set-output name=result::$RESULT"
+        # multiline strings hack https://trstringer.com/github-actions-multiline-strings/
+      shell: bash
+      id: yarn_pack
+    - uses: marocchino/sticky-pull-request-comment@v2
+      with:
+        hide_and_recreate: true
+        hide_classify: "OUTDATED"
+        message: |
+          <details><summary><strong>📦 Bundle Preview</strong> ─ the result of <code>yarn pack --dry-run</code></summary><br>
+
+          The following is a list of files that will be bundled at release time.
+
+          ```yaml
+          ${{ steps.yarn_pack.outputs.result }}
+          ```
+
+          </details>
